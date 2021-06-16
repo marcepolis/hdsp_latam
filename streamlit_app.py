@@ -13,8 +13,7 @@ st.success('Success message')
 
 user_name=st.text_input('Enter your name')
 
-print(user_name)
-
+user_name
 
 
 
