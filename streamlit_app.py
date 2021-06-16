@@ -15,8 +15,9 @@ height=int(st.text_input('Enter your height in centimeters'))
 
 
 #BMI CALCULATION
+height=height*height
 
-BMI=weight/(height*height)
+BMI=weight/height
 
 
 st.success('Hooray!')
