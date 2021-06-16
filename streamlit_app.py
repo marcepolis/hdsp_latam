@@ -16,6 +16,9 @@ dbase = st.file_uploader("Pick a file")
 
 st.success('Success message')
 
+st.text_input('Enter some text')
+
+
 def map(data, lat, lon, zoom):
     st.write(pdk.Deck(
         map_style="mapbox://styles/mapbox/light-v9",
