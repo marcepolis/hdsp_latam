@@ -7,39 +7,14 @@ import pydeck as pdk
 
 st.write('Hello, world!')
 
-x = st.slider('x')
-st.write(x, 'squared is', x * x)
-
-st.write('This is a test')
-
 dbase = st.file_uploader("Pick a file")
 
 st.success('Success message')
 
-st.text_input('Enter some text')
+user_name=st.text_input('Enter your name')
+
+print(user_name)
 
 
-def map(data, lat, lon, zoom):
-    st.write(pdk.Deck(
-        map_style="mapbox://styles/mapbox/light-v9",
-        initial_view_state={
-            "latitude": lat,
-            "longitude": lon,
-            "zoom": zoom,
-            "pitch": 50,
-        },
-        layers=[
-            pdk.Layer(
-                "HexagonLayer",
-                data=data,
-                get_position=["lon", "lat"],
-                radius=100,
-                elevation_scale=4,
-                elevation_range=[0, 1000],
-                pickable=True,
-                extruded=True,
-            ),
-        ]
-    ))
 
 
