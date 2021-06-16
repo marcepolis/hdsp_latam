@@ -11,12 +11,8 @@ DATA_URL = (
     "https://storage.googleapis.com/hdsp-data/CLUESBC.csv"
 )
 
-@st.cache(persist=True)
-def load_data(nrows):
-    data = pd.read_csv(DATA_URL, nrows=nrows)
-    lowercase = lambda x: str(x).lower()
-    data.rename(lowercase, axis="columns", inplace=True)
-    return data
+data = pd.read_csv(DATA_URL, nrows=nrows)
+
 
 # CREATING FUNCTION FOR MAPS
 
