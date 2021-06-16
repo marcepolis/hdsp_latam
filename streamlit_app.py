@@ -6,25 +6,51 @@ import pydeck as pdk
 
 
 
-st.write('Hi! Welcome to the BMI calculator!')
+# LOADING DATA
+DATE_TIME = "date/time"
+DATA_URL = (
+    "https://storage.googleapis.com/hdsp-data/CLUESBC.csv.gz"
+)
 
 
-weight=int(st.slider("Your weight is", 0, 150))
+@st.cache(persist=True)
+def load_data(nrows):
+    data = pd.read_csv(DATA_URL, nrows=nrows)
+    lowercase = lambda x: str(x).lower()
+    data.rename(lowercase, axis="columns", inplace=True)
+    data[DATE_TIME] = pd.to_datetime(data[DATE_TIME])
+    return data
 
-height=int(st.text_input('Enter your height in centimeters'))
-
-
-
-#BMI CALCULATION
-height=height/100
-height=height*height
-
-BMI=weight/height
+data = load_data(100000)
 
 
-st.success('Hooray!')
+# CREATING FUNCTION FOR MAPS
 
-st.write('Your BMI is', BMI)
+def map(data, lat, lon, zoom):
+    st.write(pdk.Deck(
+        map_style="mapbox://styles/marcepolis/ckpyumfy918u818p8emehkc8f",
+        initial_view_state={
+            "latitude": lat,
+            "longitude": lon,
+            "zoom": zoom,
+            "pitch": 50,
+        },
+        layers=[
+            pdk.Layer(
+                "clues-aloz28",
+                data=data,
+                get_position=["lon", "lat"],
+                radius=100,
+                elevation_scale=4,
+                elevation_range=[0, 1000],
+                pickable=True,
+                extruded=True,
+            ),
+        ]
+    ))
+
+
+
 
 
 
