@@ -4,7 +4,6 @@ import numpy as np
 import altair as alt
 import pydeck as pdk
 
-st.error('Enter all the data')
 
 
 st.write('Hi! Welcome to the BMI calculator!')
@@ -22,9 +21,6 @@ height=height*height
 
 BMI=weight/height
 
-with st.spinner(text='Calculating your chunkyness'):
-	time.sleep(5)
-	st.success('Done')
 
 st.success('Hooray!')
 
