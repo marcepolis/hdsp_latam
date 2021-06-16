@@ -19,5 +19,5 @@ BMI=weight/(height*height)
 
 st.success('Hooray!')
 
-st.write('Your BMI is' BMI)
+st.write('Your BMI is', BMI)
 
