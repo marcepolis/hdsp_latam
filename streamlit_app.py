@@ -38,6 +38,10 @@ def map(data, lat, lon, zoom):
     ))
 
 zoom_level=12
+pintest=[32.6675696, -115.428741]
 
 st.write("CLUES")
-map(data,32.6675696,-115.428741,zoom_level)
+map(data,pintest[0], pintest[1],zoom_level)
+
+
+
