@@ -6,11 +6,10 @@ st.write(x, 'squared is', x * x)
 
 import pandas as pd
 
+file = st.file_uploader("Pick a file")
 
-# In[3]:
 
-
-death_db = pd.read_csv('Downloads/dsdeath.csv')
+death_db = pd.read_csv(file)
 
 
 # In[7]:
