@@ -8,12 +8,11 @@ import pydeck as pdk
 st.write('Hi! Welcome to the BMI calculator!')
 
 
-weight=st.text_input('Enter your weight in kilograms')
+weight=int(st.text_input('Enter your weight in kilograms'))
 
-height=st.text_input('Enter your height in centimeters')
+height=int(st.text_input('Enter your height in centimeters'))
 
-int(weight)
-int(height)
+
 
 #BMI CALCULATION
 
