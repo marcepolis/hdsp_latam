@@ -4,7 +4,7 @@ import numpy as np
 import altair as alt
 import pydeck as pdk
 
-st.write("wharap2")
+st.write("WHARAP")
 
 
 DATA_URL = ("https://storage.googleapis.com/hdsp-data/CLUESBC.csv")
