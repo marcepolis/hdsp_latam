@@ -40,4 +40,4 @@ def map(data, lat, lon, zoom):
 
 
 st.write("CLUES")
-map(data)
+map(data,lat, lon)
