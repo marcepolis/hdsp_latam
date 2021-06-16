@@ -35,5 +35,5 @@ def map(data, lat, lon, zoom):
 
 
 
- st.write("**CLUES**")
-    map(data, zoom_level)
+st.write("CLUES")
+map(data, zoom_level)
