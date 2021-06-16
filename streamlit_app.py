@@ -37,7 +37,7 @@ def map(data, lat, lon, zoom):
         ]
     ))
 
-
+zoom_level=12
 
 st.write("CLUES")
-map(data,32.6675696,-115.428741)
+map(data,32.6675696,-115.428741,zoom_level)
