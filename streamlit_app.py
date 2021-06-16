@@ -5,15 +5,18 @@ import altair as alt
 import pydeck as pdk
 
 
-st.write('Hello, world!')
-
-dbase = st.file_uploader("Pick a file")
-
-st.success('Success message')
-
-user_name=st.text_input('Enter your name')
-
-user_name
+st.write('Hi! Welcome to the BMI calculator!')
 
 
+weight=st.text_input('Enter your weight in kilograms')
 
+height=st.text_input('Enter your height in centimeters')
+
+#BMI CALCULATION
+
+BMI=weight/(height**)
+
+
+st.success('Hooray!')
+
+st.write('Your BMI is' BMI)
