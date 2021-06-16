@@ -22,9 +22,9 @@ height=height*height
 
 BMI=weight/height
 
->>> with st.spinner(text='Calculating your chunkyness'):
->>>     time.sleep(5)
->>>     st.success('Done')
+with st.spinner(text='Calculating your chunkyness'):
+	time.sleep(5)
+	st.success('Done')
 
 st.success('Hooray!')
 
