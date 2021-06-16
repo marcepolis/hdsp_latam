@@ -12,6 +12,9 @@ weight=st.text_input('Enter your weight in kilograms')
 
 height=st.text_input('Enter your height in centimeters')
 
+int(weight)
+int(height)
+
 #BMI CALCULATION
 
 BMI=weight/(height*height)
