@@ -3,45 +3,67 @@ import pandas as pd
 import numpy as np
 import altair as alt
 import pydeck as pdk
-
-st.write("WHARAP")
-
-
-DATA_URL = ("https://storage.googleapis.com/hdsp-data/CLUESBC.csv")
-
-data = pd.read_csv(DATA_URL)
+import itertools
+import numpy as np
+from scipy.spatial import ConvexHull
+from matplotlib.collections import LineCollection
+from matplotlib import pyplot as plot
 
 
-# CREATING FUNCTION FOR MAPS
+from turfpy.transformation import voronoi
+from ipyleaflet import Map, GeoJSON, LayersControl, Marker
 
-def map(data, lat, lon, zoom):
-    st.write(pdk.Deck(
-        map_style="mapbox://styles/marcepolis/ckpyumfy918u818p8emehkc8f",
-        initial_view_state={
-            "latitude": lat,
-            "longitude": lon,
-            "zoom": zoom,
-            "pitch": 50,
-        },
-        layers=[
-            pdk.Layer(
-                "clues-aloz28",
-                data=data,
-                get_position=["lon", "lat"],
-                radius=100,
-                elevation_scale=4,
-                elevation_range=[0, 1000],
-                pickable=True,
-                extruded=True,
-            ),
-        ]
-    ))
+points = [
+    [-115.428741, 32.667570],
+    [-116.920376, 32.513352],
+    [-117.056380, 32.342030],
+    [-116.9639735, 32.507187],
+    [-115.4347215, 32.624643],
+    [-116.6023642, 31.845653],
+    [-116.93803038833175, 32.506972],
+    [-60.90340080176197, 47.319854339485836],
+    [-64.013392235184, 47.48505628754743],
+    [-63.5901237814622, 56.435271304519375],
+    [-65.29273842230272, 40.46532951990474],
+    [-64.34074762923518, 44.41467903845307],
+    [-62.75238118105902, 50.232555998274044],
+    [-66.39216606663494, 42.05774847944996],
+    [-69.4747201276131, 43.288490094187104],
+    [-60.22111554327566, 53.23070074089705],
+    [-68.38456573407701, 58.12528229586756],
+    [-60.022015858921954, 57.16751878858943],
+    [-67.27241103543064, 46.52814784233641],
+    [-68.44640005497628, 49.31604545534581],
+    [-63.19928242836677, 40.397501696572654],
+    [-69.75867935840617, 45.47856756289996],
+    [-61.32766380696367, 58.672721168560955],
+    [-67.52671607410451, 55.62959559068972],
+    [-64.05030735753337, 56.19827268873002],
+    [-65.20026060312107, 52.91890866887687],
+    [-63.02174849203104, 45.34033157319018],
+    [-62.33913739166953, 43.46950736683852],
+    [-68.70183827840249, 51.16845764645581],
+    [-66.20557198738521, 45.61818662858589],
+    [-67.06923935761512, 56.49552328077417],
+    [-68.45745370027925, 53.01501887198211],
+    [-61.230713576641044, 56.183690218293776],
+    [-61.366266080040376, 45.09667176473487],
+    [-68.40160283717302, 51.22288379742737],
+    [-65.91059565227219, 46.12828610239469],
+    [-69.24685336802877, 58.04159904298512],
+    [-67.90746049167338, 51.458754170538626],
+    [-64.69458939381633, 43.50862977964408],
 
-zoom_level=12
-pintest=[32.6675696, -115.428741]
+]
+bbox = [-120, 20, -60, 80]
+result = voronoi(points, bbox)
 
-st.write("CLUES")
-map(data,pintest[0], pintest[1],zoom_level)
+m = Map(center=[32.5027, -117.00371], zoom=12)
 
+for point in points:
+    marker = Marker(location=[point[1], point[0]])
+    m.add_layer(marker)
 
-
+vor = GeoJSON(name="Original", data=result, style={"color": "red"})
+m.add_layer(vor)
+m
