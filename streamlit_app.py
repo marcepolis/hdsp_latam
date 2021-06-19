@@ -5,12 +5,6 @@ import altair as alt
 import pydeck as pdk
 import itertools
 import numpy as np
-install ipyleaflet
-install turfpy
-
-from scipy.spatial import ConvexHull
-from matplotlib.collections import LineCollection
-from matplotlib import pyplot as plot
 
 
 from turfpy.transformation import voronoi
