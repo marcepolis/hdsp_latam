@@ -5,8 +5,8 @@ import altair as alt
 import pydeck as pdk
 import itertools
 import numpy as np
-pip install ipyleaflet
-pip install turfpy
+install ipyleaflet
+install turfpy
 
 from scipy.spatial import ConvexHull
 from matplotlib.collections import LineCollection
