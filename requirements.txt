@@ -1,7 +1,0 @@
-# -*- coding: utf-8 -*-
-streamlit==0.72.0
-ipyleaflet==0.14.0
-turfpy==0.0.6
-pandas==1.1.2
-streamlit_folium==0.1.0
-matplotlib==3.3.2
